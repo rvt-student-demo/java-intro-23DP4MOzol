@@ -55,6 +55,14 @@ public class App
         // scanner.close();
 
 
+        //  Scanner scanner = new Scanner(System.in);
+        //  System.out.println("Give a number :");
+        //  int number = Integer.valueOf(scanner.nextLine());
+        //  if (number == 1984) {
+        //       System.out.println("Orwell");
+        // scanner.close();
+
+    
 
 
 
