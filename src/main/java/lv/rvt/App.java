@@ -91,6 +91,20 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Give the first number: ");
+        // int firstNumber = scanner.nextInt();
+        // System.out.print("Give the second number: ");
+        // int secondNumber = scanner.nextInt();
+        // if (firstNumber > secondNumber) {
+        //     System.out.println("Greater number is: " + firstNumber);
+        // } else if (secondNumber > firstNumber) {
+        //     System.out.println("Greater number is: " + secondNumber);
+        // } else {
+        //     System.out.println("The numbers are equal!");
+        // }
+        // scanner.close();
+        
 
 
 
