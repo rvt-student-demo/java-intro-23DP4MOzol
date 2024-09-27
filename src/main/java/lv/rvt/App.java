@@ -132,13 +132,24 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Give a number: ");
+        // int number = scanner.nextInt();
+        // if (number % 2 == 0) {
+        //     System.out.println("Number " + number + " is even.");
+        // } else {
+        //     System.out.println("Number " + number + " is odd.");
+        // }
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Give a number: ");
-        int number = scanner.nextInt();
-        if (number % 2 == 0) {
-            System.out.println("Number " + number + " is even.");
+        System.out.print("Password? ");
+        String password = scanner.nextLine();
+        if (password.equals("Caput Draconis")) {
+            System.out.println("Welcome!");
         } else {
-            System.out.println("Number " + number + " is odd.");
+            System.out.println("Off with you!");
         }
         scanner.close();
 
