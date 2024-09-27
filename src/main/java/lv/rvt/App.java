@@ -143,13 +143,26 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Password? ");
+        // String password = scanner.nextLine();
+        // if (password.equals("Caput Draconis")) {
+        //     System.out.println("Welcome!");
+        // } else {
+        //     System.out.println("Off with you!");
+        // }
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Password? ");
-        String password = scanner.nextLine();
-        if (password.equals("Caput Draconis")) {
-            System.out.println("Welcome!");
+        System.out.print("Enter the first string: ");
+        String firstString = scanner.nextLine();
+        System.out.print("Enter the second string: ");
+        String secondString = scanner.nextLine();
+        if (firstString.equals(secondString)) {
+            System.out.println("Same");
         } else {
-            System.out.println("Off with you!");
+            System.out.println("Different");
         }
         scanner.close();
 
