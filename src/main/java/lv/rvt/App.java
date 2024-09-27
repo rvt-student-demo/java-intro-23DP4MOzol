@@ -69,6 +69,17 @@ public class App
         //        System.out.println("Ancient history!");
         // scanner.close();
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.println("Give a number :");
+        // int number = Integer.valueOf(scanner.nextLine());
+        // if (number > 0) {
+        //      System.out.println("The number is positive.");
+        // } else {
+        //     System.out.println("The number is not positive.");
+        // }
+        // scanner.close();
+
+
 
 
 
