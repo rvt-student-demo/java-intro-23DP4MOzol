@@ -154,15 +154,26 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Enter the first string: ");
+        // String firstString = scanner.nextLine();
+        // System.out.print("Enter the second string: ");
+        // String secondString = scanner.nextLine();
+        // if (firstString.equals(secondString)) {
+        //     System.out.println("Same");
+        // } else {
+        //     System.out.println("Different");
+        // }
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the first string: ");
-        String firstString = scanner.nextLine();
-        System.out.print("Enter the second string: ");
-        String secondString = scanner.nextLine();
-        if (firstString.equals(secondString)) {
-            System.out.println("Same");
+        System.out.print("How old are you? ");
+        int age = scanner.nextInt();
+        if (age >= 0 && age <= 120) {
+            System.out.println("OK");
         } else {
-            System.out.println("Different");
+            System.out.println("Impossible!");
         }
         scanner.close();
 
