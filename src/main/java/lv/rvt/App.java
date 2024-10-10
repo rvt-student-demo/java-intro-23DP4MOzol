@@ -277,12 +277,23 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Enter a number less than 100: ");
+        // int number = scanner.nextInt();  
+        // for (int i = number; i <= 100; i++) {
+        //     System.out.println(i);
+        // }
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter a number less than 100: ");
-        int number = scanner.nextInt();  
-        for (int i = number; i <= 100; i++) {
-            System.out.println(i);
+        System.out.print("Give a number: ");
+        int number = scanner.nextInt();
+        int factorial = 1;
+        for (int i = 1; i <= number; i++) {
+            factorial *= i;  
         }
+        System.out.println("Factorial: " + factorial);
         scanner.close();
 
 
