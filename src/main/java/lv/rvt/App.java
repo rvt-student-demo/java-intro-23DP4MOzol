@@ -255,25 +255,34 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // int count = 0;  // To keep track of the number of inputs
+        // int sum = 0;    // To keep track of the sum of inputs
+
+        // while (true) {
+        //     System.out.print("Give a number: ");
+        //     int number = scanner.nextInt();
+
+        //     if (number == 0) {
+        //         break;  // Exit the loop when the user inputs 0
+        //     }
+
+        //     count++;    // Increment the count for each input
+        //     sum += number;  // Add the number to the sum
+        // }
+
+        // System.out.println("Number of numbers: " + count);
+        // System.out.println("Sum of the numbers: " + sum);
+
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        int count = 0;  // To keep track of the number of inputs
-        int sum = 0;    // To keep track of the sum of inputs
-
-        while (true) {
-            System.out.print("Give a number: ");
-            int number = scanner.nextInt();
-
-            if (number == 0) {
-                break;  // Exit the loop when the user inputs 0
-            }
-
-            count++;    // Increment the count for each input
-            sum += number;  // Add the number to the sum
+        System.out.print("Enter a number less than 100: ");
+        int number = scanner.nextInt();  
+        for (int i = number; i <= 100; i++) {
+            System.out.println(i);
         }
-
-        System.out.println("Number of numbers: " + count);
-        System.out.println("Sum of the numbers: " + sum);
-
         scanner.close();
 
 
