@@ -239,25 +239,44 @@ public class App
 
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // while (true) {
+        //     System.out.print("Give a number: ");
+        //     int number = scanner.nextInt();
+
+        //     if (number < 0) {
+        //         System.out.println("Unsuitable number");
+        //     } else if (number == 0) {
+        //         break;
+        //     } else {
+        //         System.out.println(number * number);
+        //     }
+        // }
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
+        int count = 0;  // To keep track of the number of inputs
+        int sum = 0;    // To keep track of the sum of inputs
+
         while (true) {
             System.out.print("Give a number: ");
             int number = scanner.nextInt();
 
-            if (number < 0) {
-                System.out.println("Unsuitable number");
-            } else if (number == 0) {
-                break;
-            } else {
-                System.out.println(number * number);
+            if (number == 0) {
+                break;  // Exit the loop when the user inputs 0
             }
+
+            count++;    // Increment the count for each input
+            sum += number;  // Add the number to the sum
         }
+
+        System.out.println("Number of numbers: " + count);
+        System.out.println("Sum of the numbers: " + sum);
+
         scanner.close();
 
 
-
-
-        
     
 }
 
