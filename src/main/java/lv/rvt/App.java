@@ -286,14 +286,54 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // System.out.print("Give a number: ");
+        // int number = scanner.nextInt();
+        // int factorial = 1;
+        // for (int i = 1; i <= number; i++) {
+        //     factorial *= i;  
+        // }
+        // System.out.println("Factorial: " + factorial);
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Give a number: ");
-        int number = scanner.nextInt();
-        int factorial = 1;
-        for (int i = 1; i <= number; i++) {
-            factorial *= i;  
+        int sum = 0;
+        int count = 0;
+        int evenCount = 0;  // To count the number of even numbers
+        int oddCount = 0;   // To count the number of odd numbers
+        
+        System.out.println("Give numbers:");
+        
+        while (true) {
+            int number = scanner.nextInt();
+            
+            if (number == -1) {
+                System.out.println("Thx! Bye!");
+                break;
+            }
+            
+            sum += number;
+            count++;
+            
+            if (number % 2 == 0) {
+                evenCount++;  // Increment the even counter
+            } else {
+                oddCount++;   // Increment the odd counter
+            }
         }
-        System.out.println("Factorial: " + factorial);
+        
+        System.out.println("Sum: " + sum);
+        System.out.println("Numbers: " + count);
+        
+        if (count > 0) {
+            double average = (double) sum / count;
+            System.out.println("Average: " + average);
+        }
+        
+        System.out.println("Even: " + evenCount);
+        System.out.println("Odd: " + oddCount);
+        
         scanner.close();
 
 
