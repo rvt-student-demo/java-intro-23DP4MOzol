@@ -297,44 +297,62 @@ public class App
         // scanner.close();
 
 
+        // Scanner scanner = new Scanner(System.in);
+        // int sum = 0;
+        // int count = 0;
+        // int evenCount = 0;  // To count the number of even numbers
+        // int oddCount = 0;   // To count the number of odd numbers
+        
+        // System.out.println("Give numbers:");
+        
+        // while (true) {
+        //     int number = scanner.nextInt();
+            
+        //     if (number == -1) {
+        //         System.out.println("Thx! Bye!");
+        //         break;
+        //     }
+            
+        //     sum += number;
+        //     count++;
+            
+        //     if (number % 2 == 0) {
+        //         evenCount++;  // Increment the even counter
+        //     } else {
+        //         oddCount++;   // Increment the odd counter
+        //     }
+        // }
+        
+        // System.out.println("Sum: " + sum);
+        // System.out.println("Numbers: " + count);
+        
+        // if (count > 0) {
+        //     double average = (double) sum / count;
+        //     System.out.println("Average: " + average);
+        // }
+        
+        // System.out.println("Even: " + evenCount);
+        // System.out.println("Odd: " + oddCount);
+        
+        // scanner.close();
+
+
         Scanner scanner = new Scanner(System.in);
-        int sum = 0;
+        
+        System.out.print("How many times? ");
+        int times = scanner.nextInt();  // Get the number of times from the user
+        
         int count = 0;
-        int evenCount = 0;  // To count the number of even numbers
-        int oddCount = 0;   // To count the number of odd numbers
-        
-        System.out.println("Give numbers:");
-        
-        while (true) {
-            int number = scanner.nextInt();
-            
-            if (number == -1) {
-                System.out.println("Thx! Bye!");
-                break;
-            }
-            
-            sum += number;
-            count++;
-            
-            if (number % 2 == 0) {
-                evenCount++;  // Increment the even counter
-            } else {
-                oddCount++;   // Increment the odd counter
-            }
+        while (count < times) {
+            printText();  // Call the method to print the text
+            count++;  // Increment the counter
         }
-        
-        System.out.println("Sum: " + sum);
-        System.out.println("Numbers: " + count);
-        
-        if (count > 0) {
-            double average = (double) sum / count;
-            System.out.println("Average: " + average);
-        }
-        
-        System.out.println("Even: " + evenCount);
-        System.out.println("Odd: " + oddCount);
-        
+
         scanner.close();
+    }
+
+        public static void printText() {
+            System.out.println("In a hole in the ground there lived a method");
 
 
     
