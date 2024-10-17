@@ -337,25 +337,35 @@ public class App
         // scanner.close();
 
 
-        Scanner scanner = new Scanner(System.in);
+    //     Scanner scanner = new Scanner(System.in);
         
-        System.out.print("How many times? ");
-        int times = scanner.nextInt();  // Get the number of times from the user
+    //     System.out.print("How many times? ");
+    //     int times = scanner.nextInt();  
         
-        int count = 0;
-        while (count < times) {
-            printText();  // Call the method to print the text
-            count++;  // Increment the counter
+    //     int count = 0;
+    //     while (count < times) {
+    //         printText(); 
+    //         count++; 
+    //     }
+
+    //     scanner.close();
+    // }
+
+    //     public static void printText() {
+    //         System.out.println("In a hole in the ground there lived a method");
+
+
+        divisibleByThreeInRange(3, 6);
+        System.out.println();
+        divisibleByThreeInRange(2, 10);
+    }
+
+        
+    public static void divisibleByThreeInRange(int beginning, int end) {
+        for (int i = beginning; i <= end; i++) {
+            if (i % 3 == 0) {
+                System.out.println(i); 
         }
-
-        scanner.close();
     }
-
-        public static void printText() {
-            System.out.println("In a hole in the ground there lived a method");
-
-
-    
-}
-
-    }
+        }
+            }
