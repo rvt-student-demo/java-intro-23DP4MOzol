@@ -6,8 +6,8 @@ import java.util.Scanner;
 
 public class App 
 {
-    public static void main( String[] args )
-    {
+    // public static void main( String[] args )
+    // {
 
         // Scanner scanner = new Scanner(System.in);
 
@@ -355,17 +355,63 @@ public class App
     //         System.out.println("In a hole in the ground there lived a method");
 
 
-        divisibleByThreeInRange(3, 6);
-        System.out.println();
-        divisibleByThreeInRange(2, 10);
-    }
+    //     divisibleByThreeInRange(3, 6);
+    //     System.out.println();
+    //     divisibleByThreeInRange(2, 10);
+    // }
 
         
-    public static void divisibleByThreeInRange(int beginning, int end) {
-        for (int i = beginning; i <= end; i++) {
-            if (i % 3 == 0) {
-                System.out.println(i); 
-        }
-    }
-        }
+    // public static void divisibleByThreeInRange(int beginning, int end) {
+    //     for (int i = beginning; i <= end; i++) {
+    //         if (i % 3 == 0) {
+    //             System.out.println(i); 
+    //     }
+    // }
+
+
+
+
+
+        public static void printStars(int number) {
+            for (int i = 0; i < number; i++) {
+                System.out.print("*");
             }
+            System.out.println();
+        }
+    
+        public static void printSquare(int size) {
+            for (int i = 0; i < size; i++) {
+                printStars(size);
+            }
+        }
+    
+        public static void printRectangle(int width, int height) {
+            for (int i = 0; i < height; i++) {
+                printStars(width);
+            }
+        }
+    
+        public static void printTriangle(int size) {
+            for (int i = 1; i <= size; i++) {
+                printStars(i);
+            }
+        }
+    
+        public static void main(String[] args) {
+            printStars(5);  
+            printStars(3);  
+            printStars(9);  
+    
+            System.out.println("Square:");
+            printSquare(4); 
+    
+            System.out.println("Rectangle:");
+            printRectangle(17, 3); 
+    
+            System.out.println("Triangle:");
+            printTriangle(4); 
+        }
+}
+    
+    
+    
