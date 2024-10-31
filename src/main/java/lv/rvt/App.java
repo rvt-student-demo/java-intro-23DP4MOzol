@@ -1,13 +1,14 @@
 package lv.rvt;
 
-import java.util.Scanner;
+// import java.util.ArrayList;
+// import java.util.Scanner;
 
 // import java.util.*;
 
-public class App 
-{
-    // public static void main( String[] args )
-    // {
+// public class App 
+// {
+//      public static void main( String[] args )
+//     {
 
         // Scanner scanner = new Scanner(System.in);
 
@@ -372,46 +373,84 @@ public class App
 
 
 
-        public static void printStars(int number) {
-            for (int i = 0; i < number; i++) {
-                System.out.print("*");
-            }
-            System.out.println();
-        }
+        // public static void printStars(int number) {
+        //     for (int i = 0; i < number; i++) {
+        //         System.out.print("*");
+        //     }
+        //     System.out.println();
+        // }
     
-        public static void printSquare(int size) {
-            for (int i = 0; i < size; i++) {
-                printStars(size);
-            }
-        }
+        // public static void printSquare(int size) {
+        //     for (int i = 0; i < size; i++) {
+        //         printStars(size);
+        //     }
+        // }
     
-        public static void printRectangle(int width, int height) {
-            for (int i = 0; i < height; i++) {
-                printStars(width);
-            }
-        }
+        // public static void printRectangle(int width, int height) {
+        //     for (int i = 0; i < height; i++) {
+        //         printStars(width);
+        //     }
+        // }
     
-        public static void printTriangle(int size) {
-            for (int i = 1; i <= size; i++) {
-                printStars(i);
-            }
-        }
+        // public static void printTriangle(int size) {
+        //     for (int i = 1; i <= size; i++) {
+        //         printStars(i);
+        //     }
+        // }
     
-        public static void main(String[] args) {
-            printStars(5);  
-            printStars(3);  
-            printStars(9);  
+        // public static void main(String[] args) {
+        //     printStars(5);  
+        //     printStars(3);  
+        //     printStars(9);  
     
-            System.out.println("Square:");
-            printSquare(4); 
+        //     System.out.println("Square:");
+        //     printSquare(4); 
     
-            System.out.println("Rectangle:");
-            printRectangle(17, 3); 
+        //     System.out.println("Rectangle:");
+        //     printRectangle(17, 3); 
     
-            System.out.println("Triangle:");
-            printTriangle(4); 
-        }
+        //     System.out.println("Triangle:");
+        //     printTriangle(4); 
+        // }
+
+
+//         ArrayList<String> strings = new ArrayList<>();
+//         Scanner scanner = new Scanner(System.in);
+
+//         while (true) {
+//             System.out.print("Enter a string (or press Enter to stop): ");
+//             String input = scanner.nextLine();
+//             if (input.isEmpty()) {
+//                 break;
+//             }
+//             strings.add(input);
+//         }
+//         scanner.close();
+
+//         for (String name : strings) {
+//             System.out.println(name);
+//         }
+
+//         if (strings.size() >= 3) {
+//             System.out.println("\n" + strings.get(2));
+// } 
+
+
+ public class App 
+ {
+      public static void main( String[] args )
+    {
+    int[] val = {0, 1, 2, 3}; 
+    int sum = 0; 
+
+    for (int i = 0; i < val.length; i++) {
+      sum += val[i];
+    }
+
+    System.out.println( "Sum of all numbers = " + sum );
+  }
 }
+
     
     
     
