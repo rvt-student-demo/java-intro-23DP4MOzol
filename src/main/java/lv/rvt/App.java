@@ -1,5 +1,8 @@
 package lv.rvt;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 // import java.util.ArrayList;
 // import java.util.Scanner;
 
@@ -514,26 +517,70 @@ package lv.rvt;
 //   } 
 
 
-public class App 
-{
-    public static void main ( String[] args )
+    // public static void main ( String[] args )
+    // {
+    //   int[] val = {0, 1, 2, 3}; 
+    //   int temp;
+  
+    //   System.out.println("Original Array: " 
+    //       + val[0] + " " + val[1] + " " + val[2] + " " + val[3]);
+  
+    //   temp = val[0];
+    //   val[0] = val[3];
+    //   val[3] = temp;
+  
+    //   temp = val[1];
+    //   val[1] = val[2];
+    //   val[2] = temp;
+  
+    //   System.out.println("Reversed Array: " 
+    //       + val[0] + " " + val[1] + " " + val[2] + " " + val[3]);
+    // }
+  
+
+    public class App 
     {
-      int[] val = {0, 1, 2, 3}; 
-      int temp;
-  
-      System.out.println("Original Array: " 
-          + val[0] + " " + val[1] + " " + val[2] + " " + val[3]);
-  
-      temp = val[0];
-      val[0] = val[3];
-      val[3] = temp;
-  
-      temp = val[1];
-      val[1] = val[2];
-      val[2] = temp;
-  
-      System.out.println("Reversed Array: " 
-          + val[0] + " " + val[1] + " " + val[2] + " " + val[3]);
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Integer> birthYears = new ArrayList<>();
+
+
+        while (true) {
+            System.out.println("Enter name and birth year (name,year), or press Enter to finish:");
+            String input = scanner.nextLine();
+            if (input.isEmpty()) {
+                break; 
+            }
+
+
+            String[] parts = input.split(",");
+            String name = parts[0];
+            int birthYear = Integer.parseInt(parts[1]);
+
+
+            names.add(name);
+            birthYears.add(birthYear);
+        }
+
+
+        String longestName = "";
+        for (String name : names) {
+            if (name.length() > longestName.length()) {
+                longestName = name;
+            }
+        }
+
+        int sum = 0;
+        for (int year : birthYears) {
+            sum += year;
+        }
+        double averageBirthYear = sum / (double) birthYears.size();
+
+        System.out.println("Longest name: " + longestName);
+        System.out.println("Average of the birth years: " + averageBirthYear);
+        scanner.close();
     }
-  }
+}
     
