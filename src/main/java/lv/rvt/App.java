@@ -538,49 +538,67 @@ import java.util.Scanner;
     // }
   
 
+    // public class App 
+    // {
+
+    // public static void main(String[] args) {
+    //     Scanner scanner = new Scanner(System.in);
+    //     ArrayList<String> names = new ArrayList<>();
+    //     ArrayList<Integer> birthYears = new ArrayList<>();
+
+
+    //     while (true) {
+    //         System.out.println("Enter name and birth year (name,year), or press Enter to finish:");
+    //         String input = scanner.nextLine();
+    //         if (input.isEmpty()) {
+    //             break; 
+    //         }
+
+
+    //         String[] parts = input.split(",");
+    //         String name = parts[0];
+    //         int birthYear = Integer.parseInt(parts[1]);
+
+
+    //         names.add(name);
+    //         birthYears.add(birthYear);
+    //     }
+
+
+    //     String longestName = "";
+    //     for (String name : names) {
+    //         if (name.length() > longestName.length()) {
+    //             longestName = name;
+    //         }
+    //     }
+
+    //     int sum = 0;
+    //     for (int year : birthYears) {
+    //         sum += year;
+    //     }
+    //     double averageBirthYear = sum / (double) birthYears.size();
+
+    //     System.out.println("Longest name: " + longestName);
+    //     System.out.println("Average of the birth years: " + averageBirthYear);
+    //     scanner.close();
+    // }
     public class App 
     {
+        public static void main(String[] args) {
+    Account artosAccount = new Account("Arto's account", 100.00);
+    Account artosSwissAccount = new Account("Arto's account in Switzerland", 1000000.00);
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        ArrayList<String> names = new ArrayList<>();
-        ArrayList<Integer> birthYears = new ArrayList<>();
+    System.out.println("Initial state");
+    System.out.println(artosAccount);
+    System.out.println(artosSwissAccount);
 
+    artosAccount.withdraw(20);
+    System.out.println("The balance of Arto's account is now: " + artosAccount.balance());
+    artosSwissAccount.deposit(200);
+    System.out.println("The balance of Arto's other account is now: " + artosSwissAccount.balance());
 
-        while (true) {
-            System.out.println("Enter name and birth year (name,year), or press Enter to finish:");
-            String input = scanner.nextLine();
-            if (input.isEmpty()) {
-                break; 
-            }
-
-
-            String[] parts = input.split(",");
-            String name = parts[0];
-            int birthYear = Integer.parseInt(parts[1]);
-
-
-            names.add(name);
-            birthYears.add(birthYear);
-        }
-
-
-        String longestName = "";
-        for (String name : names) {
-            if (name.length() > longestName.length()) {
-                longestName = name;
-            }
-        }
-
-        int sum = 0;
-        for (int year : birthYears) {
-            sum += year;
-        }
-        double averageBirthYear = sum / (double) birthYears.size();
-
-        System.out.println("Longest name: " + longestName);
-        System.out.println("Average of the birth years: " + averageBirthYear);
-        scanner.close();
-    }
-}
+    System.out.println("End state");
+    System.out.println(artosAccount);
+    System.out.println(artosSwissAccount);
+} }
     
