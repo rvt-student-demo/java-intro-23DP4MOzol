@@ -582,23 +582,54 @@ import java.util.Scanner;
     //     System.out.println("Average of the birth years: " + averageBirthYear);
     //     scanner.close();
     // }
-    public class App 
-    {
-        public static void main(String[] args) {
-    Account artosAccount = new Account("Arto's account", 100.00);
-    Account artosSwissAccount = new Account("Arto's account in Switzerland", 1000000.00);
+//     public class App 
+//     {
+//         public static void main(String[] args) {
+//     Account artosAccount = new Account("Arto's account", 100.00);
+//     Account artosSwissAccount = new Account("Arto's account in Switzerland", 1000000.00);
 
-    System.out.println("Initial state");
-    System.out.println(artosAccount);
-    System.out.println(artosSwissAccount);
+//     System.out.println("Initial state");
+//     System.out.println(artosAccount);
+//     System.out.println(artosSwissAccount);
 
-    artosAccount.withdraw(20);
-    System.out.println("The balance of Arto's account is now: " + artosAccount.balance());
-    artosSwissAccount.deposit(200);
-    System.out.println("The balance of Arto's other account is now: " + artosSwissAccount.balance());
+//     artosAccount.withdraw(20);
+//     System.out.println("The balance of Arto's account is now: " + artosAccount.balance());
+//     artosSwissAccount.deposit(200);
+//     System.out.println("The balance of Arto's other account is now: " + artosSwissAccount.balance());
 
-    System.out.println("End state");
-    System.out.println(artosAccount);
-    System.out.println(artosSwissAccount);
-} }
-    
+//     System.out.println("End state");
+//     System.out.println(artosAccount);
+//     System.out.println(artosSwissAccount);
+// } 
+// }
+public class App {
+    private String name;
+    private double price;
+    private int quantity;
+
+    public void printProduct() {
+        System.out.println(name + ", price " + price + ", " + quantity + " pcs");
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // User inputs for product details
+        System.out.print("Enter product name: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Enter product price: ");
+        double price = scanner.nextDouble();
+
+        System.out.print("Enter product quantity: ");
+        int quantity = scanner.nextInt();
+
+        // Create a Product instance with user input
+        Product userProduct = new Product(name, price, quantity);
+
+        // Print product information
+        userProduct.printProduct();
+
+        scanner.close();
+    }
+}
