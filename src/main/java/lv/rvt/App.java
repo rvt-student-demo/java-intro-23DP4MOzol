@@ -602,34 +602,64 @@ import java.util.Scanner;
 //     System.out.println(artosSwissAccount);
 // } 
 // }
-public class App {
-    private String name;
-    private double price;
-    private int quantity;
+// public class App {
+//     private String name;
+//     private double price;
+//     private int quantity;
 
-    public void printProduct() {
-        System.out.println(name + ", price " + price + ", " + quantity + " pcs");
-    }
+//     public void printProduct() {
+//         System.out.println(name + ", price " + price + ", " + quantity + " pcs");
+//     }
+
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+
+//         // User inputs for product details
+//         System.out.print("Enter product name: ");
+//         String name = scanner.nextLine();
+
+//         System.out.print("Enter product price: ");
+//         double price = scanner.nextDouble();
+
+//         System.out.print("Enter product quantity: ");
+//         int quantity = scanner.nextInt();
+
+//         // Create a Product instance with user input
+//         Product userProduct = new Product(name, price, quantity);
+
+//         // Print product information
+//         userProduct.printProduct();
+
+//         scanner.close();
+//     }
+public class App {
+
+    
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        DecreasingCounter counter = new DecreasingCounter(10);
 
-        // User inputs for product details
-        System.out.print("Enter product name: ");
-        String name = scanner.nextLine();
+        counter.printValue();
+        counter.decrement();
+        counter.printValue();
+        counter.decrement();
+        counter.printValue();
 
-        System.out.print("Enter product price: ");
-        double price = scanner.nextDouble();
+        counter = new DecreasingCounter(2);
+        counter.printValue();
+        counter.decrement();
+        counter.printValue();
+        counter.decrement();
+        counter.printValue();
+        counter.decrement();
+        counter.printValue();
 
-        System.out.print("Enter product quantity: ");
-        int quantity = scanner.nextInt();
-
-        // Create a Product instance with user input
-        Product userProduct = new Product(name, price, quantity);
-
-        // Print product information
-        userProduct.printProduct();
-
-        scanner.close();
+        counter = new DecreasingCounter(100);
+        counter.printValue();
+        counter.reset();
+        counter.printValue();
+        counter.decrement();
+        counter.printValue();
     }
 }
+
