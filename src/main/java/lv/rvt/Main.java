@@ -1,7 +1,7 @@
 package lv.rvt;
 
 // import java.util.ArrayList;
-import java.util.Scanner;
+// import java.util.Scanner;
 
 // import java.util.ArrayList;
 // import java.util.Scanner;
@@ -664,48 +664,130 @@ import java.util.Scanner;
 // }
 
 
+// public class Main {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
 
+//         Statistics allNumbers = new Statistics();
+//         Statistics evenNumbers = new Statistics();
+//         Statistics oddNumbers = new Statistics();
 
+//         System.out.println("Enter numbers(Enter -1 to stop) : ");
+//         while (true) {
+//             String input = scanner.nextLine();
+
+//             if (input.trim().isEmpty()) {
+//                 continue;
+//             }
+//             try {
+//                 int number = Integer.parseInt(input); // Convert input to integer
+//                 if (number == -1) {
+//                     break; // Exit loop if input is -1
+//                 }
+
+//                 // Add the number to the appropriate Statistics objects
+//                 allNumbers.addNumber(number);
+//                 if (number % 2 == 0) {
+//                     evenNumbers.addNumber(number); // Even numbers
+//                 } else {
+//                     oddNumbers.addNumber(number); // Odd numbers
+//                 }
+//             } catch (NumberFormatException e) {
+//                 System.out.println("Invalid input. Please enter an integer.");
+//             }
+//         }
+
+//         // Print results
+//         System.out.println("Sum: " + allNumbers.sum());
+//         System.out.println("Sum of even numbers: " + evenNumbers.sum());
+//         System.out.println("Sum of odd numbers: " + oddNumbers.sum());
+//         System.out.println("Count: " + allNumbers.getCount());
+//         System.out.println("Average: " + allNumbers.average());
+//         scanner.close();
+//     }
+// }
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        // Part 1: Single card test
+        System.out.println("== Single Card Test ==");
+        PaymentCard card = new PaymentCard(50);
+        System.out.println(card);
 
-        Statistics allNumbers = new Statistics();
-        Statistics evenNumbers = new Statistics();
-        Statistics oddNumbers = new Statistics();
+        card.eatAffordably();
+        System.out.println(card);
 
-        System.out.println("Enter numbers(Enter -1 to stop) : ");
-        while (true) {
-            String input = scanner.nextLine();
+        card.eatHeartily();
+        card.eatAffordably();
+        System.out.println(card);
 
-            if (input.trim().isEmpty()) {
-                continue;
-            }
-            try {
-                int number = Integer.parseInt(input); // Convert input to integer
-                if (number == -1) {
-                    break; // Exit loop if input is -1
-                }
+        // Part 2: Non-negative balance test
+        System.out.println("\n== Non-negative Balance Test ==");
+        PaymentCard card2 = new PaymentCard(5);
+        System.out.println(card2);
 
-                // Add the number to the appropriate Statistics objects
-                allNumbers.addNumber(number);
-                if (number % 2 == 0) {
-                    evenNumbers.addNumber(number); // Even numbers
-                } else {
-                    oddNumbers.addNumber(number); // Odd numbers
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter an integer.");
-            }
-        }
+        card2.eatHeartily();
+        System.out.println(card2);
 
-        // Print results
-        System.out.println("Sum: " + allNumbers.sum());
-        System.out.println("Sum of even numbers: " + evenNumbers.sum());
-        System.out.println("Sum of odd numbers: " + oddNumbers.sum());
-        System.out.println("Count: " + allNumbers.getCount());
-        System.out.println("Average: " + allNumbers.average());
-        scanner.close();
+        card2.eatHeartily();
+        System.out.println(card2);
+
+        // Part 3: Adding money with limit test
+        System.out.println("\n== Adding Money with Limit Test ==");
+        PaymentCard card3 = new PaymentCard(10);
+        System.out.println(card3);
+
+        card3.addMoney(15);
+        System.out.println(card3);
+
+        card3.addMoney(10);
+        System.out.println(card3);
+
+        card3.addMoney(200);
+        System.out.println(card3);
+
+        // Part 4: Adding negative money test
+        System.out.println("\n== Adding Negative Money Test ==");
+        PaymentCard card4 = new PaymentCard(10);
+        System.out.println("Paul: " + card4);
+
+        card4.addMoney(-15);
+        System.out.println("Paul: " + card4);
+
+        // Part 5: Multiple cards test
+        System.out.println("\n== Multiple Cards Test ==");
+        PaymentCard paulsCard = new PaymentCard(20);
+        PaymentCard mattsCard = new PaymentCard(30);
+
+        // Paul eats heartily
+        paulsCard.eatHeartily();
+
+        // Matt eats affordably
+        mattsCard.eatAffordably();
+
+        // Print balances
+        System.out.println("Paul: " + paulsCard);
+        System.out.println("Matt: " + mattsCard);
+
+        // Paul tops up 20 euros
+        paulsCard.addMoney(20);
+
+        // Matt eats heartily
+        mattsCard.eatHeartily();
+
+        // Print balances
+        System.out.println("Paul: " + paulsCard);
+        System.out.println("Matt: " + mattsCard);
+
+        // Paul eats affordably twice
+        paulsCard.eatAffordably();
+        paulsCard.eatAffordably();
+
+        // Matt tops up 50 euros
+        mattsCard.addMoney(50);
+
+        // Print balances
+        System.out.println("Paul: " + paulsCard);
+        System.out.println("Matt: " + mattsCard);
     }
 }
