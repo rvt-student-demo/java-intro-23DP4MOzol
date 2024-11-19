@@ -664,29 +664,39 @@ import java.util.Scanner;
 // }
 
 
-public class App {
+
+
+
+public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Create Statistics objects for all numbers, even numbers, and odd numbers
         Statistics allNumbers = new Statistics();
         Statistics evenNumbers = new Statistics();
         Statistics oddNumbers = new Statistics();
 
-        System.out.println("Enter numbers:");
+        System.out.println("Enter numbers(Enter -1 to stop) : ");
         while (true) {
-            int number = Integer.parseInt(scanner.nextLine());
-            if (number == -1) {
-                break;
+            String input = scanner.nextLine();
+
+            if (input.trim().isEmpty()) {
+                continue;
             }
+            try {
+                int number = Integer.parseInt(input); // Convert input to integer
+                if (number == -1) {
+                    break; // Exit loop if input is -1
+                }
 
-            // Add the number to the appropriate Statistics objects
-            allNumbers.addNumber(number);
-
-            if (number % 2 == 0) {
-                evenNumbers.addNumber(number); // Even numbers
-            } else {
-                oddNumbers.addNumber(number); // Odd numbers
+                // Add the number to the appropriate Statistics objects
+                allNumbers.addNumber(number);
+                if (number % 2 == 0) {
+                    evenNumbers.addNumber(number); // Even numbers
+                } else {
+                    oddNumbers.addNumber(number); // Odd numbers
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter an integer.");
             }
         }
 
