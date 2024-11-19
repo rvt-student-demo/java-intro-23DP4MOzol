@@ -707,87 +707,153 @@ package lv.rvt;
 //     }
 // }
 
+// public class Main {
+//     public static void main(String[] args) {
+//         // Part 1: Single card test
+//         System.out.println("== Single Card Test ==");
+//         PaymentCard card = new PaymentCard(50);
+//         System.out.println(card);
+
+//         card.eatAffordably();
+//         System.out.println(card);
+
+//         card.eatHeartily();
+//         card.eatAffordably();
+//         System.out.println(card);
+
+//         // Part 2: Non-negative balance test
+//         System.out.println("\n== Non-negative Balance Test ==");
+//         PaymentCard card2 = new PaymentCard(5);
+//         System.out.println(card2);
+
+//         card2.eatHeartily();
+//         System.out.println(card2);
+
+//         card2.eatHeartily();
+//         System.out.println(card2);
+
+//         // Part 3: Adding money with limit test
+//         System.out.println("\n== Adding Money with Limit Test ==");
+//         PaymentCard card3 = new PaymentCard(10);
+//         System.out.println(card3);
+
+//         card3.addMoney(15);
+//         System.out.println(card3);
+
+//         card3.addMoney(10);
+//         System.out.println(card3);
+
+//         card3.addMoney(200);
+//         System.out.println(card3);
+
+//         // Part 4: Adding negative money test
+//         System.out.println("\n== Adding Negative Money Test ==");
+//         PaymentCard card4 = new PaymentCard(10);
+//         System.out.println("Paul: " + card4);
+
+//         card4.addMoney(-15);
+//         System.out.println("Paul: " + card4);
+
+//         // Part 5: Multiple cards test
+//         System.out.println("\n== Multiple Cards Test ==");
+//         PaymentCard paulsCard = new PaymentCard(20);
+//         PaymentCard mattsCard = new PaymentCard(30);
+
+//         // Paul eats heartily
+//         paulsCard.eatHeartily();
+
+//         // Matt eats affordably
+//         mattsCard.eatAffordably();
+
+//         // Print balances
+//         System.out.println("Paul: " + paulsCard);
+//         System.out.println("Matt: " + mattsCard);
+
+//         // Paul tops up 20 euros
+//         paulsCard.addMoney(20);
+
+//         // Matt eats heartily
+//         mattsCard.eatHeartily();
+
+//         // Print balances
+//         System.out.println("Paul: " + paulsCard);
+//         System.out.println("Matt: " + mattsCard);
+
+//         // Paul eats affordably twice
+//         paulsCard.eatAffordably();
+//         paulsCard.eatAffordably();
+
+//         // Matt tops up 50 euros
+//         mattsCard.addMoney(50);
+
+//         // Print balances
+//         System.out.println("Paul: " + paulsCard);
+//         System.out.println("Matt: " + mattsCard);
+//     }
+// }
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        // Part 1: Single card test
-        System.out.println("== Single Card Test ==");
-        PaymentCard card = new PaymentCard(50);
-        System.out.println(card);
+        Scanner scanner = new Scanner(System.in);
 
-        card.eatAffordably();
-        System.out.println(card);
+        // Predefined list of books
+        ArrayList<Book> books = new ArrayList<>();
+        books.add(new Book("To Kill a Mockingbird", 281, 1960));
+        books.add(new Book("A Brief History of Time", 256, 1988));
+        books.add(new Book("Beautiful Code", 593, 2007));
+        books.add(new Book("The Name of the Wind", 662, 2007));
 
-        card.eatHeartily();
-        card.eatAffordably();
-        System.out.println(card);
+        System.out.println("Choose a book by entering the number:");
+        for (int i = 0; i < books.size(); i++) {
+            System.out.println((i + 1) + ": " + books.get(i).getTitle());
+        }
 
-        // Part 2: Non-negative balance test
-        System.out.println("\n== Non-negative Balance Test ==");
-        PaymentCard card2 = new PaymentCard(5);
-        System.out.println(card2);
+        ArrayList<Book> selectedBooks = new ArrayList<>();
 
-        card2.eatHeartily();
-        System.out.println(card2);
+        // User selects books
+        while (true) {
+            System.out.print("Enter book number (or press Enter to finish): ");
+            String input = scanner.nextLine();
 
-        card2.eatHeartily();
-        System.out.println(card2);
+            if (input.isEmpty()) {
+                break;
+            }
 
-        // Part 3: Adding money with limit test
-        System.out.println("\n== Adding Money with Limit Test ==");
-        PaymentCard card3 = new PaymentCard(10);
-        System.out.println(card3);
+            try {
+                int bookNumber = Integer.parseInt(input);
 
-        card3.addMoney(15);
-        System.out.println(card3);
+                if (bookNumber < 1 || bookNumber > books.size()) {
+                    System.out.println("Invalid choice. Please select a number between 1 and " + books.size());
+                } else {
+                    Book selectedBook = books.get(bookNumber - 1);
+                    selectedBooks.add(selectedBook);
+                    System.out.println(selectedBook.getTitle() + " added to your list.");
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Please enter a valid number.");
+            }
+        }
 
-        card3.addMoney(10);
-        System.out.println(card3);
+        // Ask what to print
+        System.out.print("\nWhat information will be printed? (everything / name): ");
+        String choice = scanner.nextLine();
 
-        card3.addMoney(200);
-        System.out.println(card3);
+        if (choice.equals("everything")) {
+            for (Book book : selectedBooks) {
+                System.out.println(book.getDetails());
+            }
+        } else if (choice.equals("name")) {
+            for (Book book : selectedBooks) {
+                System.out.println(book.getTitle());
+            }
+        } else {
+            System.out.println("Invalid choice.");
+        }
 
-        // Part 4: Adding negative money test
-        System.out.println("\n== Adding Negative Money Test ==");
-        PaymentCard card4 = new PaymentCard(10);
-        System.out.println("Paul: " + card4);
-
-        card4.addMoney(-15);
-        System.out.println("Paul: " + card4);
-
-        // Part 5: Multiple cards test
-        System.out.println("\n== Multiple Cards Test ==");
-        PaymentCard paulsCard = new PaymentCard(20);
-        PaymentCard mattsCard = new PaymentCard(30);
-
-        // Paul eats heartily
-        paulsCard.eatHeartily();
-
-        // Matt eats affordably
-        mattsCard.eatAffordably();
-
-        // Print balances
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
-
-        // Paul tops up 20 euros
-        paulsCard.addMoney(20);
-
-        // Matt eats heartily
-        mattsCard.eatHeartily();
-
-        // Print balances
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
-
-        // Paul eats affordably twice
-        paulsCard.eatAffordably();
-        paulsCard.eatAffordably();
-
-        // Matt tops up 50 euros
-        mattsCard.addMoney(50);
-
-        // Print balances
-        System.out.println("Paul: " + paulsCard);
-        System.out.println("Matt: " + mattsCard);
+        scanner.close();
     }
 }
+
