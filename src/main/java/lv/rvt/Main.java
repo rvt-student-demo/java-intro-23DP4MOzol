@@ -792,68 +792,84 @@ package lv.rvt;
 //     }
 // }
 
-import java.util.ArrayList;
-import java.util.Scanner;
+// import java.util.ArrayList;
+// import java.util.Scanner;
+
+// public class Main {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+
+//         // Predefined list of books
+//         ArrayList<Book> books = new ArrayList<>();
+//         books.add(new Book("To Kill a Mockingbird", 281, 1960));
+//         books.add(new Book("A Brief History of Time", 256, 1988));
+//         books.add(new Book("Beautiful Code", 593, 2007));
+//         books.add(new Book("The Name of the Wind", 662, 2007));
+
+//         System.out.println("Choose a book by entering the number:");
+//         for (int i = 0; i < books.size(); i++) {
+//             System.out.println((i + 1) + ": " + books.get(i).getTitle());
+//         }
+
+//         ArrayList<Book> selectedBooks = new ArrayList<>();
+
+//         // User selects books
+//         while (true) {
+//             System.out.print("Enter book number (or press Enter to finish): ");
+//             String input = scanner.nextLine();
+
+//             if (input.isEmpty()) {
+//                 break;
+//             }
+
+//             try {
+//                 int bookNumber = Integer.parseInt(input);
+
+//                 if (bookNumber < 1 || bookNumber > books.size()) {
+//                     System.out.println("Invalid choice. Please select a number between 1 and " + books.size());
+//                 } else {
+//                     Book selectedBook = books.get(bookNumber - 1);
+//                     selectedBooks.add(selectedBook);
+//                     System.out.println(selectedBook.getTitle() + " added to your list.");
+//                 }
+//             } catch (NumberFormatException e) {
+//                 System.out.println("Please enter a valid number.");
+//             }
+//         }
+
+//         // Ask what to print
+//         System.out.print("\nWhat information will be printed? (everything / name): ");
+//         String choice = scanner.nextLine();
+
+//         if (choice.equals("everything")) {
+//             for (Book book : selectedBooks) {
+//                 System.out.println(book.getDetails());
+//             }
+//         } else if (choice.equals("name")) {
+//             for (Book book : selectedBooks) {
+//                 System.out.println(book.getTitle());
+//             }
+//         } else {
+//             System.out.println("Invalid choice.");
+//         }
+
+//         scanner.close();
+//     }
+// }
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Timer timer = new Timer();
 
-        // Predefined list of books
-        ArrayList<Book> books = new ArrayList<>();
-        books.add(new Book("To Kill a Mockingbird", 281, 1960));
-        books.add(new Book("A Brief History of Time", 256, 1988));
-        books.add(new Book("Beautiful Code", 593, 2007));
-        books.add(new Book("The Name of the Wind", 662, 2007));
-
-        System.out.println("Choose a book by entering the number:");
-        for (int i = 0; i < books.size(); i++) {
-            System.out.println((i + 1) + ": " + books.get(i).getTitle());
-        }
-
-        ArrayList<Book> selectedBooks = new ArrayList<>();
-
-        // User selects books
         while (true) {
-            System.out.print("Enter book number (or press Enter to finish): ");
-            String input = scanner.nextLine();
-
-            if (input.isEmpty()) {
-                break;
-            }
+            System.out.println(timer);
+            timer.advance();
 
             try {
-                int bookNumber = Integer.parseInt(input);
-
-                if (bookNumber < 1 || bookNumber > books.size()) {
-                    System.out.println("Invalid choice. Please select a number between 1 and " + books.size());
-                } else {
-                    Book selectedBook = books.get(bookNumber - 1);
-                    selectedBooks.add(selectedBook);
-                    System.out.println(selectedBook.getTitle() + " added to your list.");
-                }
-            } catch (NumberFormatException e) {
-                System.out.println("Please enter a valid number.");
+                Thread.sleep(10); // Pause for 10 milliseconds (simulate hundredths of a second)
+            } catch (Exception e) {
+                System.out.println("Error in timer: " + e.getMessage());
             }
         }
-
-        // Ask what to print
-        System.out.print("\nWhat information will be printed? (everything / name): ");
-        String choice = scanner.nextLine();
-
-        if (choice.equals("everything")) {
-            for (Book book : selectedBooks) {
-                System.out.println(book.getDetails());
-            }
-        } else if (choice.equals("name")) {
-            for (Book book : selectedBooks) {
-                System.out.println(book.getTitle());
-            }
-        } else {
-            System.out.println("Invalid choice.");
-        }
-
-        scanner.close();
     }
 }
-
