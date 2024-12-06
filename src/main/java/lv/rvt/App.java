@@ -1,5 +1,6 @@
 package lv.rvt;
 
+import java.io.BufferedReader;
 // import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -664,38 +665,57 @@ import java.util.Scanner;
 // }
 
 
+// public class App {
+//     public static void main(String[] args) {
+//         Scanner scanner = new Scanner(System.in);
+
+//         // Create Statistics objects for all numbers, even numbers, and odd numbers
+//         Statistics allNumbers = new Statistics();
+//         Statistics evenNumbers = new Statistics();
+//         Statistics oddNumbers = new Statistics();
+
+//         System.out.println("Enter numbers:");
+//         while (true) {
+//             int number = Integer.parseInt(scanner.nextLine());
+//             if (number == -1) {
+//                 break;
+//             }
+
+//             // Add the number to the appropriate Statistics objects
+//             allNumbers.addNumber(number);
+
+//             if (number % 2 == 0) {
+//                 evenNumbers.addNumber(number); // Even numbers
+//             } else {
+//                 oddNumbers.addNumber(number); // Odd numbers
+//             }
+//         }
+
+//         // Print results
+//         System.out.println("Sum: " + allNumbers.sum());
+//         System.out.println("Sum of even numbers: " + evenNumbers.sum());
+//         System.out.println("Sum of odd numbers: " + oddNumbers.sum());
+//         System.out.println("Count: " + allNumbers.getCount());
+//         System.out.println("Average: " + allNumbers.average());
+//         scanner.close();
+//     }
+// }
+
+
+import java.io.IOException;
+
 public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Create Statistics objects for all numbers, even numbers, and odd numbers
-        Statistics allNumbers = new Statistics();
-        Statistics evenNumbers = new Statistics();
-        Statistics oddNumbers = new Statistics();
-
-        System.out.println("Enter numbers:");
-        while (true) {
-            int number = Integer.parseInt(scanner.nextLine());
-            if (number == -1) {
-                break;
-            }
-
-            // Add the number to the appropriate Statistics objects
-            allNumbers.addNumber(number);
-
-            if (number % 2 == 0) {
-                evenNumbers.addNumber(number); // Even numbers
-            } else {
-                oddNumbers.addNumber(number); // Odd numbers
-            }
+        try (BufferedReader reader = Helper.getReader("Persons.csv")) {
+            System.out.println(reader.readLine());
+            System.out.println(reader.readLine());
+            System.out.println(reader.readLine());
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
         }
 
-        // Print results
-        System.out.println("Sum: " + allNumbers.sum());
-        System.out.println("Sum of even numbers: " + evenNumbers.sum());
-        System.out.println("Sum of odd numbers: " + oddNumbers.sum());
-        System.out.println("Count: " + allNumbers.getCount());
-        System.out.println("Average: " + allNumbers.average());
         scanner.close();
     }
 }
