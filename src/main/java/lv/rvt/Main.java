@@ -874,36 +874,77 @@ package lv.rvt;
 //     }
 // }
 
-import java.util.ArrayList;
+// import java.util.ArrayList;
+// public class Main {
+//     public static void printPersons(ArrayList<Person> persons) {
+//         for (Person person : persons) {
+//             System.out.println(person);
+//         }
+//     }
+
+//     public static void main(String[] args) {
+//         // Creating instances
+//         Teacher ada = new Teacher("Ada Lovelace", 36, "ada@example.com", 1200);
+//         Teacher esko = new Teacher("Esko Ukkonen", 45, "esko@example.com", 5400);
+//         Student ollie = new Student("Ollie", 20, "ollie@example.com");
+
+//         // Printing teachers
+//         System.out.println(ada);
+//         System.out.println(esko);
+
+//         // Simulating studies
+//         for (int i = 0; i < 25; i++) {
+//             ollie.study();
+//         }
+//         System.out.println(ollie);
+
+//         // List of persons
+//         ArrayList<Person> persons = new ArrayList<>();
+//         persons.add(new Teacher("Ada Lovelace", 36, "ada@example.com", 1200));
+//         persons.add(new Student("Ollie", 20, "ollie@example.com"));
+
+//         // Printing all persons
+//         printPersons(persons);
+//     }
+// }
+
+
+
+
 public class Main {
-    public static void printPersons(ArrayList<Person> persons) {
-        for (Person person : persons) {
-            System.out.println(person);
-        }
-    }
-
     public static void main(String[] args) {
-        // Creating instances
-        Teacher ada = new Teacher("Ada Lovelace", 36, "ada@example.com", 1200);
-        Teacher esko = new Teacher("Esko Ukkonen", 45, "esko@example.com", 5400);
-        Student ollie = new Student("Ollie", 20, "ollie@example.com");
+        // Step 1
+        Warehouse warehouse = new Warehouse(1000);
+        warehouse.addToWarehouse(500);
+        System.out.println(warehouse); // balance = 500.0, space left 500.0
+        warehouse.takeFromWarehouse(200);
+        System.out.println(warehouse); // balance = 300.0, space left 700.0
 
-        // Printing teachers
-        System.out.println(ada);
-        System.out.println(esko);
+        // Step 2
+        ProductWarehouse juice = new ProductWarehouse("Juice", 1000.0);
+        juice.addToWarehouse(1000.0);
+        juice.takeFromWarehouse(11.3);
+        System.out.println(juice.getName()); // Juice
+        System.out.println(juice);           // Juice: balance = 988.7, space left 11.3
 
-        // Simulating studies
-        for (int i = 0; i < 25; i++) {
-            ollie.study();
-        }
-        System.out.println(ollie);
+        // Step 3
+        ChangeHistory history = new ChangeHistory();
+        history.add(1000.0);
+        history.add(988.7);
+        history.add(989.7);
+        System.out.println("History: " + history); // [1000.0, 988.7, 989.7]
+        System.out.println("Max: " + history.maxValue()); // 1000.0
+        System.out.println("Min: " + history.minValue()); // 988.7
+        System.out.println("Average: " + history.average()); // ~992.8
 
-        // List of persons
-        ArrayList<Person> persons = new ArrayList<>();
-        persons.add(new Teacher("Ada Lovelace", 36, "ada@example.com", 1200));
-        persons.add(new Student("Ollie", 20, "ollie@example.com"));
-
-        // Printing all persons
-        printPersons(persons);
+        // Step 4
+        ProductWarehouseWithHistory juiceWithHistory = new ProductWarehouseWithHistory("Juice", 1000.0, 1000.0);
+        juiceWithHistory.takeFromWarehouse(11.3);
+        juiceWithHistory.addToWarehouse(1.0);
+        System.out.println(juiceWithHistory); // Juice: balance = 989.7, space left 10.3
+        System.out.println("History: " + juiceWithHistory.history()); // [1000.0, 988.7, 989.7]
+        
+        // Step 5
+        juiceWithHistory.printAnalysis();
     }
 }
