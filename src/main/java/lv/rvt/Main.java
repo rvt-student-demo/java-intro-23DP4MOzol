@@ -1,5 +1,7 @@
 package lv.rvt;
 
+// import java.io.BufferedReader;
+
 // import java.util.ArrayList;
 // import java.util.Scanner;
 
@@ -954,33 +956,102 @@ package lv.rvt;
 
 
 
+// import java.util.ArrayList;
+
+// public class Main {
+//     public static void main(String[] args) {
+//         Book book1 = new Book("Fyodor Dostoevsky", "Crime and Punishment", 2);
+//         Book book2 = new Book("Robert Martin", "Clean Code", 1);
+//         Book book3 = new Book("Kent Beck", "Test Driven Development", 0.5);
+
+//         CD cd1 = new CD("Pink Floyd", "Dark Side of the Moon", 1973);
+//         CD cd2 = new CD("Wigwam", "Nuclear Nightclub", 1975);
+//         CD cd3 = new CD("Rendezvous Park", "Closer to Being Here", 2012);
+
+//         System.out.println(book1);
+//         System.out.println(book2);
+//         System.out.println(book3);
+//         System.out.println(cd1);
+//         System.out.println(cd2);
+//         System.out.println(cd3);
+
+//         Box box = new Box(10);
+//         box.add(new Book("Fyodor Dostoevsky", "Crime and Punishment", 2));
+//         box.add(new Book("Robert Martin", "Clean Code", 1));
+//         box.add(new Book("Kent Beck", "Test Driven Development", 0.7));
+//         box.add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
+//         box.add(new CD("Wigwam", "Nuclear Nightclub", 1975));
+//         box.add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
+
+//         System.out.println(box);
+//     }
+// }
+
+
+
+
+
+
+// public class Main {
+//     public static void main(String[] args) throws Exception {
+
+//             BufferedReader reader = Helper.getReader("Persons.csv");
+//             // katrs readline() metodes izsaukums atgriež nākamo rindiņu no teksta faila
+//             System.out.println(reader.readLine()); // Atgriež 1 rindu
+//             System.out.println(reader.readLine()); // 2
+//             System.out.println(reader.readLine()); // 3
+//             System.out.println(reader.readLine()); // 4
+
+
+//             // Izmantojot while ciklu printēt visas esošās rindiņas
+//             String line;
+//             while ((line = reader.readLine()) != null) { 
+//                System.out.println(line);
+//     }
+// } }
+    
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Book book1 = new Book("Fyodor Dostoevsky", "Crime and Punishment", 2);
-        Book book2 = new Book("Robert Martin", "Clean Code", 1);
-        Book book3 = new Book("Kent Beck", "Test Driven Development", 0.5);
-
-        CD cd1 = new CD("Pink Floyd", "Dark Side of the Moon", 1973);
-        CD cd2 = new CD("Wigwam", "Nuclear Nightclub", 1975);
-        CD cd3 = new CD("Rendezvous Park", "Closer to Being Here", 2012);
-
-        System.out.println(book1);
-        System.out.println(book2);
-        System.out.println(book3);
-        System.out.println(cd1);
-        System.out.println(cd2);
-        System.out.println(cd3);
-
-        Box box = new Box(10);
-        box.add(new Book("Fyodor Dostoevsky", "Crime and Punishment", 2));
-        box.add(new Book("Robert Martin", "Clean Code", 1));
-        box.add(new Book("Kent Beck", "Test Driven Development", 0.7));
-        box.add(new CD("Pink Floyd", "Dark Side of the Moon", 1973));
-        box.add(new CD("Wigwam", "Nuclear Nightclub", 1975));
-        box.add(new CD("Rendezvous Park", "Closer to Being Here", 2012));
-
-        System.out.println(box);
+  public static void main(String[] args) {
+    Scanner scanner = new Scanner(System.in);
+    System.out.println("Ievadiet int masīva elementus, atdalot tos ar atstarpēm:");
+    String input = scanner.nextLine();
+    String[] inputArray = input.split(" ");
+    ArrayList<Integer> intList = new ArrayList<>();
+    
+    for (String s : inputArray) {
+      try {
+        intList.add(Integer.parseInt(s));
+      } catch (NumberFormatException e) {
+        System.out.println("Tukša vērtība vai nederīgs skaitlis: " + s);
+      }
     }
+    
+    Collections.sort(intList, Comparator.naturalOrder());
+    System.out.println("\nMasīvs augošā secībā:");
+    System.out.println("===============================");
+    System.out.printf("| %-10s | %-10s |\n", "index", "value");
+    System.out.println("===============================");
+    for (int i = 0; i < intList.size(); i++) {
+      System.out.printf("| %-10d | %-10d |\n", i, intList.get(i));
+    }
+    System.out.println("===============================");
+    
+    Collections.sort(intList, Comparator.reverseOrder());
+    System.out.println("\nMasīvs dilstošā secībā:");
+    System.out.println("===============================");
+    System.out.printf("| %-10s | %-10s |\n", "index", "value");
+    System.out.println("===============================");
+    for (int i = 0; i < intList.size(); i++) {
+      System.out.printf("| %-10d | %-10d |\n", i, intList.get(i));
+    }
+    System.out.println("===============================");
+    
+    scanner.close();
+  }
 }
